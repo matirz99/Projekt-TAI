@@ -62,11 +62,11 @@ function listowanie() {
     var oceniono = false;
     var blad = false;
 
-    if (liczba1 == "") {
+    if (liczba1 === "") {
         komunikat += "Nie wypełniono 1 pola<br/>";
         blad = true;
     }
-    if (liczba2 == "") {
+    if (liczba2 === "") {
         komunikat += "Nie wypełniono 2 pola<br/>";
         blad = true;
     }
@@ -79,7 +79,7 @@ function listowanie() {
         blad = true;
     }
 
-    if (blad == false) {
+    if (blad === false) {
         if (liczba1 == liczba2) {
             komunikat += "Podane liczby są równe<br/>";
         } else if (liczba1 > liczba2) {
