@@ -60,38 +60,36 @@ function listowanie() {
     console.log((liczba1 < liczba2));
     var komunikat = "";
     var oceniono = false;
-    if ((liczba1 == "") && (liczba2 == "")) {
-        komunikat += "Nie wypełniono żadnego z pól";
-        oceniono = true;
-    } else {
-        if (liczba1 == "") komunikat += "Nie wypełniono 1 pola";
-        if (liczba2 == "") komunikat += "Nie wypełniono 2 pola";
-        liczba1 = Number(liczba1);
-        liczba2 = Number(liczba2);
+    var blad = false;
 
-        if (Number.isNaN(liczba1)) komunikat += "Wartość w pierwszym polu nie jest liczbą";
-        if (Number.isNaN(liczba2)) komunikat += "Wartość w drugim polu nie jest liczbą";
+    if (liczba1 == "") {
+        komunikat += "Nie wypełniono 1 pola<br/>";
+        blad = true;
     }
-    if (liczba1 < liczba2)
-        for (i = liczba1; i < liczba2; i++) {
-            console.log(i);
-            console.log(liczba1);
-            console.log(liczba2);
-            komunikat = komunikat + i + ", ";
-            alert("Budujemy rosnący ciąg: " + komunikat + "Wartość i: [" + i + "]");
-    } else
-        for (i = liczba1; i > liczba2; i--) {
-            komunikat = komunikat + i + ", ";
-            alert("Budujemy rosnący ciąg: " + komunikat + "Wartość i: [" + i + "]");
+    if (liczba2 == "") {
+        komunikat += "Nie wypełniono 2 pola<br/>";
+        blad = true;
     }
-    if (liczba1 == liczba2) odp.innerHTML = "Podane liczby są równe";
-    /*	if (liczba1 < liczba2) 
-for ( i=liczba1 ; i<liczba2 ; i++) komunikat = komunikat + i ", ";
-else
-for ( i=liczba1 ; i>liczba2 ; i--) komunikat = komunikat + i ", ";
-*/
-    /*	komunikat = komunikat + liczba2;
-/*alert ("Oto komunikat: [" + komunikat + "]");*/
+    if (Number.isNaN(liczba1)) {
+        komunikat += "Wartość w pierwszym polu nie jest liczbą<br/>";
+        blad = true;
+    }
+    if (Number.isNaN(liczba2)) {
+        komunikat += "Wartość w drugim polu nie jest liczbą<br/>";
+        blad = true;
+    }
+
+    if (blad == false) {
+        if (liczba1 == liczba2) {
+            komunikat += "Podane liczby są równe<br/>";
+        } else if (liczba1 > liczba2) {
+            komunikat += "Podane liczby rosnąco: " + liczba2 + ", " + liczba1 + "<br/>";
+        } else if (liczba1 < liczba2) {
+            komunikat += "Podane liczby malejąco: " + liczba2 + ", " + liczba1 + "<br/>";
+        }
+
+    }
     odp.innerHTML = komunikat;
+    return 0;
 }
 window.onload = odliczanie;
