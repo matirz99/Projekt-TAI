@@ -50,10 +50,10 @@ function odliczanie() {
 }
 
 function listowanie() {
-    var liczba1 = document.getElementById("pole1").value;
-    liczba1 = Number(liczba1);
-    var liczba2 = document.getElementById("pole2").value;
-    liczba2 = Number(liczba2);
+    var liczba1_string = document.getElementById("pole1").value;
+    liczba1 = Number(liczba1_string);
+    var liczba2_string = document.getElementById("pole2").value;
+    liczba2 = Number(liczba2_string);
     var odp = document.getElementById("odpowiedz");
     console.log(typeof(liczba1));
     console.log(typeof(liczba2));
@@ -62,11 +62,11 @@ function listowanie() {
     var oceniono = false;
     var blad = false;
 
-    if (liczba1 === "") {
+    if (liczba1_string === "") {
         komunikat += "Nie wypełniono 1 pola<br/>";
         blad = true;
     }
-    if (liczba2 === "") {
+    if (liczba2_string === "") {
         komunikat += "Nie wypełniono 2 pola<br/>";
         blad = true;
     }
