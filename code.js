@@ -84,8 +84,16 @@ function listowanie() {
             komunikat += "Podane liczby są równe<br/>";
         } else if (liczba1 > liczba2) {
             komunikat += "Podane liczby rosnąco: " + liczba2 + ", " + liczba1 + "<br/>";
+            komunikat += "Rosnący ciąg: ";
+            for (i = liczba2; i <= liczba1; ++i) {
+                komunikat += i + ", ";
+            }
         } else if (liczba1 < liczba2) {
             komunikat += "Podane liczby malejąco: " + liczba2 + ", " + liczba1 + "<br/>";
+            komunikat += "Malejący ciąg: ";
+            for (i = liczba2; i >= liczba1; --i) {
+                komunikat += i + ", ";
+            }
         }
 
     }
